@@ -79,6 +79,19 @@ class BinTree(object):
         return 1 + max(
             self.maxDepth(subtree.left), self.maxDepth(subtree.right))
 
+    def minDepth(self, subtree):
+        """
+        最小深度
+        """
+        if subtree is None:
+            return 0
+        if subtree.left and subtree.right:
+            return min(
+                self.minDepth(subtree.left), self.minDepth(subtree.right)) + 1
+        else:
+            return max(
+                self.minDepth(subtree.left), self.minDepth(subtree.right)) + 1
+
 
 node_list = [
     {'data': 'A', 'left': 'B', 'right': 'C', 'is_root': True},
@@ -100,4 +113,5 @@ btree = BinTree.build_from(node_list)
 # btree.inorder(btree.root)
 # btree.postorder(btree.root)
 # btree.layer(btree.root)
-print(btree.maxDepth(btree.root))
+# print(btree.maxDepth(btree.root))
+print(btree.minDepth(btree.root))
