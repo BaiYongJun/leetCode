@@ -92,6 +92,14 @@ class BinTree(object):
             return max(
                 self.minDepth(subtree.left), self.minDepth(subtree.right)) + 1
 
+    def isbanlance(self, subtree):
+        if subtree is None:
+            return True
+        left = self.maxDepth(subtree.left)
+        right = self.maxDepth(subtree.right)
+        return abs(left - right) <= 1 and self.isbanlance(
+            subtree.left) and self.isbanlance(subtree.right)
+
 
 node_list = [
     {'data': 'A', 'left': 'B', 'right': 'C', 'is_root': True},
@@ -114,4 +122,5 @@ btree = BinTree.build_from(node_list)
 # btree.postorder(btree.root)
 # btree.layer(btree.root)
 # print(btree.maxDepth(btree.root))
-print(btree.minDepth(btree.root))
+# print(btree.minDepth(btree.root))
+print(btree.isbanlance(btree.root))
