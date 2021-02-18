@@ -100,6 +100,20 @@ class BinTree(object):
         return abs(left - right) <= 1 and self.isbanlance(
             subtree.left) and self.isbanlance(subtree.right)
 
+    def isSymmetric(self, subtree):
+        if not subtree.data:
+            return True
+        return self.isMirror(subtree.left, subtree.right)
+
+    def isMirror(self, p, q):
+        if not p and not q:
+            return True
+        if not p or not q:
+            return False
+        le = self.isMirror(p.left, q.right)
+        r = self.isMirror(p.right, q.left)
+        return p.data == q.data and le and r
+
 
 node_list = [
     {'data': 'A', 'left': 'B', 'right': 'C', 'is_root': True},
@@ -123,4 +137,5 @@ btree = BinTree.build_from(node_list)
 # btree.layer(btree.root)
 # print(btree.maxDepth(btree.root))
 # print(btree.minDepth(btree.root))
-print(btree.isbanlance(btree.root))
+# print(btree.isbanlance(btree.root))
+print(btree.isSymmetric(btree.root))
