@@ -1,8 +1,8 @@
-package main
+package alg
 
 import "fmt"
 
-func main() {
+func LenthOfLongestSubstring() {
 	var s string = "dfsffdsafdzsx"
 	fmt.Println(lenthOfLongestSubstring(s))
 }

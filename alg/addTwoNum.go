@@ -1,4 +1,4 @@
-package main
+package alg
 
 import "fmt"
 
@@ -36,7 +36,7 @@ func addTwoNumbers(l1, l2 *ListNode) (head *ListNode) {
 	return
 }
 
-func main() {
+func AddTwoNumbers() {
 	var aa *ListNode
 	aa = new(ListNode)
 	var l1 = ListNode{2, &ListNode{4, &ListNode{3, nil}}}

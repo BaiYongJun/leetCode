@@ -1,8 +1,8 @@
-package main
+package alg
 
 import "fmt"
 
-func main() {
+func TwoSum() {
 	aa := []int{}
 	bb := []int{1, 3, 4, 5, 6, 7}
 	aa = twoSum(bb, 6)
